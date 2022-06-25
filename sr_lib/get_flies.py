@@ -5,19 +5,17 @@ from sr_lib.retry import *
 from sr_lib.selaux import *
 from sr_lib.skyscanner import *
 
-def get_flies(browser, driver, site, fromp, top, dep, arrival, priceline, delay):
+def get_flies(browser, site, fromp, top, dep, arrival, priceline, delay):
     dep = str(dep.strftime("%y%m%d"))
     arrival = str(arrival.strftime("%y%m%d"))
     prices = []
     attempts = 0
     while attempts < 10:
         try:
-            if driver == None:
-                print('None')
-                if not browser:
-                    driver = headless_firefox()
-                else:
-                    driver = headless_chrome()
+            if not browser:
+                driver = headless_firefox()
+            else:
+                driver = headless_chrome()
             retry_func(site.search, [driver, fromp, top, dep, arrival], 5, 2)
             sleep(1)
             retry_func(site.consent_cookies, driver, 5, 2)

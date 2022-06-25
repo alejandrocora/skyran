@@ -40,15 +40,11 @@ def main():
     if not max_days:
         max_days = (date.fromisoformat(end_date) - date.fromisoformat(start_date)).days
     dates = get_dates(date.fromisoformat(start_date), date.fromisoformat(end_date), min_days, max_days)
-    if not browser:
-        driver = headless_firefox()
-    else:
-        driver = headless_chrome()
     for fromp in frompl:
         for top in topl:
             for dep_date in dates:
                 for arrival_date in dates[dep_date]:
-                    print('Departure Airport -> ' + fromp + ' - Arrival Airport -> ' + top + ', Departure Date -> ' + str(dep_date), '- Arrival Date -> ' + str(arrival_date) + " | Cheapest price -> " + get_flies(browser, driver, skyscanner, fromp, top, dep_date, arrival_date, priceline, delay))
+                    print('Departure Airport -> ' + fromp + ' - Arrival Airport -> ' + top + ', Departure Date -> ' + str(dep_date), '- Arrival Date -> ' + str(arrival_date) + " | Cheapest price -> " + get_flies(browser, skyscanner, fromp, top, dep_date, arrival_date, priceline, delay))
 
 if __name__ == '__main__':
     main()

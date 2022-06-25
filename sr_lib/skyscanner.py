@@ -15,13 +15,11 @@ class skyscanner:
         elem.click()
 
     def check_load(driver):
-        loading_bar = True
-        while loading_bar:
-            try:
-                elem = driver.find_element(By.XPATH, '//span[@class="BpkText_bpk-text__YWQwM BpkText_bpk-text--body-default__NGZhN ProgressText_searchingProviderMessage__NjcwY ProgressText_providerName__MjljN"]')
-                loading_bar = True
-            except NoSuchElementException:
-                loading_bar = False
+        try:
+            retry_func(driver.find_element, [By.XPATH, '//span[@class="BpkText_bpk-text__YWQwM BpkText_bpk-text--body-default__NGZhN ProgressText_searchingProviderMessage__NjcwY ProgressText_providerName__MjljN"]'], 2, 3)
+        except:
+            pass
+
 
     def get_prices(driver):
         elems = driver.find_elements(By.XPATH, '//span[@class="BpkText_bpk-text__YWQwM BpkText_bpk-text--lg__ODFjM"]')
