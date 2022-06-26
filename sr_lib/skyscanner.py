@@ -20,7 +20,6 @@ class skyscanner:
         except:
             pass
 
-
     def get_prices(driver):
         elems = driver.find_elements(By.XPATH, '//span[@class="BpkText_bpk-text__YWQwM BpkText_bpk-text--lg__ODFjM"]')
         return elems
