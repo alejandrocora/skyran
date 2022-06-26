@@ -1,6 +1,6 @@
-# Skybell
+# Skyran
 
-Skybell is a fly scraper that helps the user compare different prices for a given range of possible days for a trip.
+Skyran is a fly scraper that helps the user compare different prices for a given range of possible days for a trip.
 
 ## Installation
 
