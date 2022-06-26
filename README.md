@@ -25,7 +25,7 @@ options:
   --max-days MAX_DAYS  Maximun quantity of days you wish to stay.
   --delay DELAY        Delay for search retries.
   --firefox            Use Firefox.
-  --chrome             Use Chrome.`
+  --chrome             Use Chrome.
 ```
 
 ### Notes
